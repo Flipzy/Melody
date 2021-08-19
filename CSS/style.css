@@ -132,5 +132,8 @@ body {
     border: none;
     padding: 16px 36px;
     cursor: pointer;
+}
 
+path.current-floor {
+    opacity: 1;
 }
