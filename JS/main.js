@@ -3,11 +3,26 @@ $(document).ready(function () {
     var counterUp = $('.counter--up');
     var counterDown = $('.counter--down');
     var floorPath = $('.home--img path');
+    var modal = $('.modal');
+    var modalCloseButton = $('.modal--close--button');
+    var counter = $('.view--flats');
+    var currentFlat = 40;
+    var flatPath = $('.modal--img path');
+
+
     floorPath.on('mouseover', function() {
         floorPath.removeClass('current-floor');
         currentFloor = $(this).attr('data-floor');
         $('.counter').text(currentFloor);
     });
+
+
+
+    floorPath.on('click', toggleModal);
+
+    modalCloseButton.on('click', toggleModal);
+
+    counter.on('click', toggleModal);
 
     counterUp.on('click', function() {
         if (currentFloor < 18) {
@@ -27,5 +42,9 @@ $(document).ready(function () {
             floorPath.removeClass('current-floor');
             $(`[data-floor=${usCurrentFloor}]`).toggleClass('current-floor');
         }
-    })
+    });
+
+    function toggleModal() {
+        modal.toggleClass('is--open');
+    }
 });
